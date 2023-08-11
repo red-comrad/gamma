@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 02</title>
+</head>
+<body>
+    <p id="0"></p>
+    <p id="1"></p>
+    <p id="2"></p>
+    <p id="3"></p>
+    <p id="4"></p>
+    <p id="5"></p>
+    <script>
+        //
+        // first
+        //
+        let p0 = document.getElementById("0");
+        const numbers = [1, 2, 3, 4, 5];
+        const sumArray = (numbers) => {
+            let ret = 0;
+            for(var i=0; i < numbers.length; i++)
+            {
+                ret += numbers[i];
+            }
+            p0.innerHTML = "<span>[" + numbers.toString() + "]</span><span>'s sum = " + ret.toString() +"</span>";
+        }
+        sumArray(numbers);
+
+        //
+        // second
+        // 
+        let person = {
+            name: "admin",
+            age: 12,
+            email: "admin@osl.com",
+        }
+
+        const printPerson = (person) => {
+            let p1 = document.getElementById("1");
+            let ret = `person details are (name: ${person.name} | age: ${person.age} | email: ${person.email})`;
+            p1.innerText = ret;
+        }
+        printPerson(person);
+        let greeting = (name) => {
+            return `hello ${name}`
+        }
+        p2 = document.getElementById("2");
+        p2.innerText = greeting("himanshu");
+
+        //
+        //third
+        //
+        let p3 = document.getElementById("3");
+        function Car(brand, model)
+        {
+            this.brand = brand;
+            this.model = model;
+            this.start = function()
+            {
+                return `Brand: ${this.brand} Model: ${this.model}`;
+            }
+        }
+        const supra = new Car("Toyota", "GR Supra");
+        p3.innerText = supra.start();
+
+        //
+        // fourth
+        //
+        let p4 = document.getElementById("4");
+        let printNumbers = function()
+        {
+            var count = 0;
+            p4.innerHTML += "inside loop:";
+            for(var count=1; count <=5; count++)
+            {
+                p4.innerHTML += count + " ";
+            }
+            p4.innerHTML += "<br>outside loop:" + count;
+        }
+
+        printNumbers();
+        
+        //
+        // fifth
+        //
+        let p5 = document.getElementById("5");
+
+        let user = 
+        {
+            name: "himanshu",
+            sayName: function()
+            {
+                return this.name;
+            }
+        }
+
+        let boundSayName = user.sayName.bind(user);
+
+        p5.innerText += "Objects name using binded function: " + boundSayName();
+
+    </script>
+</body>
+</html>

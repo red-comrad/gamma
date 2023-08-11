@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 03</title>
+</head>
+<body>
+    <p id="01"></p>
+    <p>
+        <button id="02">OPEN NEW WINDOW</button>
+    </p>
+    <div id="myDiv">
+        this is a div
+    </div>
+    <p>
+        <button id="03">
+            CLICK ME
+        </button>
+    </p>
+    <p>
+        <input type="text" id="myInput"/>
+        <br>
+        <button id="myButton">
+            ADD NEW ELEMENT
+        </button>
+        <button id="myButton2">
+            REMOVE ELEMENT
+        </button>
+        <ul id="myList">
+            
+        </ul>
+    </p>
+    <script>
+        p01 = document.getElementById("01");
+        p01.innerText = window.location.origin+window.location.pathname;
+
+        p02 = document.getElementById("02");
+        p02.addEventListener("click", (e)=>{
+            window.open("http://www.google.com", "new window", "width=500, height=400");
+        });
+
+        pdiv = document.getElementById("myDiv");
+        pdiv.style.background = "#ff0000";
+
+        p03 = document.getElementById("03");
+        p03.addEventListener("click", (e)=>{
+            pdiv.style.background = "#00ff00";
+        });
+
+        document.getElementById("myButton").addEventListener("click", (e)=>{
+            let value = document.getElementById("myInput");
+            if(value.value == "") return;
+            let node = document.createElement("li");
+            node.innerText = value.value;
+            let parent = document.getElementById("myList");
+            parent.appendChild(node);
+        });
+
+        document.getElementById("myButton2").addEventListener("click", (e)=>{
+            let parent = document.getElementById("myList");
+            parent.removeChild(parent.getElementsByTagName("li")[0]);
+        });
+
+    </script>
+</body>
+</html>
